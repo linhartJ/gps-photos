@@ -1,0 +1,31 @@
+{
+  "name": "gps-photos",
+  "productName": "GPS Photos",
+  "version": "0.0.1",
+  "description": "Simple desktop app for managing geo-location information on photots",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./build/",
+    "build": "node ./src/build/buildscript.js",
+    "dist": "electron-packager ./build --out ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linhartJ/gps-photos.git"
+  },
+  "keywords": [
+    "electron",
+    "photos",
+    "gps"
+  ],
+  "author": "Jiří Linhart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linhartJ/gps-photos/issues"
+  },
+  "homepage": "https://github.com/linhartJ/gps-photos#readme",
+  "devDependencies": {
+    "electron": "^6.0.12",
+    "electron-packager": "^14.0.6"
+  }
+}
