@@ -3,11 +3,12 @@
   "productName": "GPS Photos",
   "version": "0.0.1",
   "description": "Simple desktop app for managing geo-location information on photots",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "start": "electron ./build/",
-    "build": "node ./src/build/buildscript.js",
-    "dist": "electron-packager ./build --out ./dist"
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
+    "build": "gulp",
+    "dist": "gulp myDist"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,17 @@
   },
   "homepage": "https://github.com/linhartJ/gps-photos#readme",
   "devDependencies": {
+    "@types/jasmine": "^3.4.4",
     "electron": "^6.0.12",
-    "electron-packager": "^14.0.6"
+    "electron-packager": "^14.0.6",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-exec": "^4.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-typescript": "^5.0.1",
+    "jasmine": "^3.5.0",
+    "pug": "^2.0.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }
