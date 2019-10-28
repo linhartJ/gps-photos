@@ -1,20 +1,20 @@
 import { Menu } from "electron";
-
-import Main from "./main";
+import { AppActions, getAppActions } from "./appActions";
 
 class MainMenu {
-    constructor(menu: typeof Menu, main: typeof Main) {
-        const template = this.createTemplate(main.quit);
+    constructor(menu: typeof Menu, appActions: AppActions) {
+        const template = this.createTemplate(appActions);
         menu.setApplicationMenu(menu.buildFromTemplate(template));
     }
 
-    private createTemplate = (quit: () => void): (Electron.MenuItem | Electron.MenuItemConstructorOptions)[] => {
+    private createTemplate = (actions: AppActions): (Electron.MenuItem | Electron.MenuItemConstructorOptions)[] => {
         return [
             {
                 label: "Soubor",
                 submenu: [
-                    { label: "Otevřít" },
-                    { label: "Ukončit", click: quit, accelerator: "CommandOrControl+W" }
+                    { label: "Otevřít", click: actions.selectFile, accelerator: "CommandOrControl+O" },
+                    { type: "separator" },
+                    { label: "Ukončit", click: actions.quit, accelerator: "CommandOrControl+W" }
                 ]
             }
         ]
@@ -22,6 +22,6 @@ class MainMenu {
 
 }
 
-export function createMainMenu(main: typeof Main) {
-    new MainMenu(Menu, main);
+export function createMainMenu() {
+    new MainMenu(Menu, getAppActions());
 }

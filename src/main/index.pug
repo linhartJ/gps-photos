@@ -3,7 +3,11 @@ html
         meta(charset="UTF-8")
         title GPS Fotky
         link(rel="stylesheet" type="text/css" href="style.css")
+        script
+            | var exports = {"__esModule": true};
+        script(src="guiActions.js")
     body
         include toolbar
-        include exifPanel
-        include mainContent
+        div
+            include exifPanel
+            include mainContent
