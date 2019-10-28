@@ -22,6 +22,6 @@ class MainMenu {
 
 }
 
-export function createMainToolbar(main: typeof Main) {
+export function createMainMenu(main: typeof Main) {
     new MainMenu(Menu, main);
 }
