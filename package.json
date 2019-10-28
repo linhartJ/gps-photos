@@ -39,5 +39,8 @@
     "pug": "^2.0.4",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "electron-localshortcut": "^3.1.0"
   }
 }
