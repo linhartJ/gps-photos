@@ -1,4 +1,4 @@
-import {Menu} from "electron";
+import { Menu } from "electron";
 
 import Main from "./main";
 
@@ -13,8 +13,8 @@ class MainMenu {
             {
                 label: "Soubor",
                 submenu: [
-                    {label: "Otevřít"},
-                    {label: "Ukončit", click: quit}
+                    { label: "Otevřít" },
+                    { label: "Ukončit", click: quit, accelerator: "CommandOrControl+W" }
                 ]
             }
         ]
@@ -23,5 +23,5 @@ class MainMenu {
 }
 
 export function createMainToolbar(main: typeof Main) {
-    new MainMenu(Menu, main);
+    // new MainMenu(Menu, main);
 }

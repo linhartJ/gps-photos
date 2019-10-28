@@ -1,0 +1,31 @@
+@appMargin: 20px;
+@toolbarTotalHeight: 200px;
+@exifPanelTotalWidth: 500px;
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+.toolbar {
+    width: calc(~"100% - "(2 * @appMargin));
+    height: @toolbarTotalHeight - (2*@appMargin);
+    background-color: grey;
+    margin: @appMargin;
+}
+
+.exifPanel {
+    display: inline-block;
+    margin: 0 0 @appMargin @appMargin;
+    background-color: yellow;
+    width: calc(@exifPanelTotalWidth - @appMargin);
+    height: calc(~"100% - "(@toolbarTotalHeight - @appMargin));
+}
+
+.mainArea {
+    display: inline-block;
+    margin: 0 @appMargin @appMargin @appMargin;
+    background-color: blue;
+    width: calc(~"100% - "(@exifPanelTotalWidth - 2*@appMargin));
+    height: calc(~"100% - "(@toolbarTotalHeight - @appMargin));
+}

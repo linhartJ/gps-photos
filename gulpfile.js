@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const ts = require('gulp-typescript');
 const clean = require('gulp-clean');
+const less = require('gulp-less');
 const fs = require('fs');
 const exec = require('child_process').exec;
 const tsProject = ts.createProject('tsconfig.json');
@@ -26,6 +27,12 @@ function pugTask() {
         .pipe(gulp.dest('build'));
 }
 
+function lessTask() {
+    return gulp.src('src/main/*less')
+        .pipe(less())
+        .pipe(gulp.dest('build'));
+}
+
 function packageJsonTask() {
     return gulp.src("package.json")
         .pipe(gulp.dest("./build/"))
@@ -36,5 +43,5 @@ function distTask() {
     return exec("electron-packager ./build --out ./dist")
 }
 
-exports.default = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask);
-exports.myDist = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, distTask);
+exports.default = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask);
+exports.myDist = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask, distTask);
