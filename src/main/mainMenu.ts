@@ -23,5 +23,5 @@ class MainMenu {
 }
 
 export function createMainToolbar(main: typeof Main) {
-    // new MainMenu(Menu, main);
+    new MainMenu(Menu, main);
 }
