@@ -38,10 +38,15 @@ function packageJsonTask() {
         .pipe(gulp.dest("./build/"))
 }
 
+function copyResourcesTask() {
+    return gulp.src("src/main/resources/*")
+        .pipe(gulp.dest("./build/"))
+}
+
 function distTask() {
     if (!fs.existsSync("./dist")) fs.mkdirSync("./dist");
     return exec("electron-packager ./build --out ./dist")
 }
 
-exports.default = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask);
-exports.myDist = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask, distTask);
+exports.default = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask, copyResourcesTask);
+exports.myDist = gulp.series(cleanTask, packageJsonTask, pugTask, typescriptTask, lessTask, copyResourcesTask, distTask);

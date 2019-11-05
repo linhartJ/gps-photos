@@ -1,5 +1,5 @@
-import { ipcRenderer } from "electron";
-import { ActionEvent } from "./events";
+import {ipcRenderer} from "electron";
+import {ActionEvent} from "./events";
 
 ipcRenderer.on(ActionEvent.PhotoSelected, (e, path: string | undefined) => {
     const el = document.getElementById("mainArea");
@@ -7,3 +7,7 @@ ipcRenderer.on(ActionEvent.PhotoSelected, (e, path: string | undefined) => {
         el.innerHTML = path;
     }
 });
+
+function selectFile() {
+    ipcRenderer.send(ActionEvent.PhotoSelected);
+}
