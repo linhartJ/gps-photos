@@ -27,7 +27,7 @@
   "homepage": "https://github.com/linhartJ/gps-photos#readme",
   "devDependencies": {
     "@types/jasmine": "^3.4.4",
-    "electron": "^6.0.12",
+    "electron": "^9.1.0",
     "electron-packager": "^14.0.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
